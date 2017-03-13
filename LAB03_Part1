@@ -1,0 +1,23 @@
+const byte LED=13;
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Welcome to Arduino!");
+
+}
+
+void loop() {
+  int val;
+if(Serial.available()){
+  val = Serial.read();
+  if(val=='1'){
+    digitalWrite(LED, HIGH);
+    Serial.print("LED ON");
+        delay(1000);
+  } else if (val == '0'){
+    digitalWrite(LED, LOW);
+    Serial.print("LED OFF");
+      delay(1000);
+  }
+}
+    
+}
