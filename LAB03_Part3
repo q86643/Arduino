@@ -1,0 +1,25 @@
+int i;
+double R1=1031000;
+double R2=2.29;
+double sensorValue=1031002.29;
+double sensorVoltage=5;
+void setup() {
+Serial.begin(9600);
+pinMode(A1,INPUT);
+
+}
+
+void loop() {
+  double Vin=5;
+for (i=0;i<=5;i++)
+sensorValue = 0.7* sensorValue + 0.3* analogRead(A1);
+sensorVoltage = sensorValue * 5 / 1024;
+// sensorVoltage= 5 * R1 / (R1+R2)
+R1 = 5 * (1031002.29) / 5;
+Serial.print(sensorValue);
+Serial.print('/');
+Serial.print(sensorVoltage);
+Serial.print('/');
+Serial.println(R1);
+delay(1000);
+}
